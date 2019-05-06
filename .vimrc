@@ -69,6 +69,9 @@ set ignorecase
 set smartcase
 nmap <silent> // :nohlsearch<CR>
 
+" Fix vue files highlighting 
+autocmd FileType vue syntax sync fromstart
+
 " Vim-go settings
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
