@@ -8,6 +8,9 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'lxhillwind/leader-clipboard'
 Plug 'mileszs/ack.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'posva/vim-vue'
+Plug 'buoto/gotests-vim'
 call plug#end()
 
 syntax on
@@ -34,6 +37,7 @@ let g:lightline = {
 let NERDTreeShowHidden = 1 " show hidden files by default
 let mapleader = ","
 nmap <leader>ne :NERDTreeToggle<cr>
+nmap <leader>nf :NERDTreeFind<cr>
 
 " Recursive search in current directory for matches with current word
 nnoremap <Leader>f :<C-u>execute "Ack! " . expand("<cword>") <Bar> cw<CR>
