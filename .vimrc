@@ -69,6 +69,10 @@ set ignorecase
 set smartcase
 nmap <silent> // :nohlsearch<CR>
 
+" https://github.com/vim/vim/blob/master/runtime/doc/russian.txt
+" Enable hotkeys for Russian layout
+set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+
 " Fix vue files highlighting 
 autocmd FileType vue syntax sync fromstart
 
