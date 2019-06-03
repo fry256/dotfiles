@@ -11,6 +11,7 @@ Plug 'mileszs/ack.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'posva/vim-vue'
 Plug 'buoto/gotests-vim'
+Plug 'tpope/vim-commentary'
 call plug#end()
 
 syntax on
@@ -69,6 +70,9 @@ set ignorecase
 set smartcase
 nmap <silent> // :nohlsearch<CR>
 
+" Map commentary
+xmap <leader>c <Plug>Commentary
+
 " https://github.com/vim/vim/blob/master/runtime/doc/russian.txt
 " Enable hotkeys for Russian layout
 set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
@@ -84,32 +88,3 @@ let g:go_highlight_function_calls = 1
 let g:go_fmt_command = "goimports"
 let g:go_metalinter_autosave_enabled = ['vet']
 let g:go_metalinter_autosave = 1
-
-xmap <leader>c :call Comment()<CR>
-xmap <leader>C :call Uncomment()<CR>
-
-function! Comment()
-	let ft = &filetype
-	if ft == 'php' || ft == 'sh' || ft == 'make' 
-		silent s/^/\#/
-	elseif ft == 'javascript' || ft == 'go'
-		silent s:^:\/\/:g
-	elseif ft == 'tex'
-		silent s:^:%:g
-	elseif ft == 'vim'
-		silent s:^:\":g
-	endif
-endfunction
-
-function! Uncomment()
-	let ft = &filetype
-	if ft == 'php' || ft == 'sh' || ft == 'make' 
-		silent s/^\#//
-	elseif ft == 'javascript'|| ft == 'go'
-		silent s:^\/\/::g
-	elseif ft == 'tex'
-		silent s:^%::g
-	elseif ft == 'vim'
-		silent s:^\"::g
-	endif
-endfunction
