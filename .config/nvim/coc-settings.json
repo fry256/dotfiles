@@ -1,0 +1,9 @@
+{
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/", "/Users/yuri.petrov/dev/projects/go/"],
+      "filetypes": ["go"]
+    }
+  }
+}
